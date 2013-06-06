@@ -1,0 +1,223 @@
+#include <cassert>
+#include "QuadraticProbing.h"
+#include <iostream>
+
+const unsigned int PRIMES[] = { 101, 211, 421, 673, 1361, 2729, 5471, 10949, 21893, 43787, 87583, 175211, 350293, 700591, 1401187, 2802377, 5604763, 11209591, 22419239, 44838491, 89677037, 179354081, 358708241, 717416501, 1434833009 };
+
+const unsigned int MAX_PRIME = 1434833009;
+
+/**
+ * Internal method to test if a positive number is prime.
+ * Not an efficient algorithm.
+ */
+bool isPrime( int n )
+{
+  if( n == 2 || n == 3 )
+    return true;
+
+  if( n == 1 || n % 2 == 0 )
+    return false;
+
+  for( int i = 3; i * i <= n; i += 2 )
+    if( n % i == 0 )
+      return false;
+
+  return true;
+}
+
+/**
+ * Internal method to return a prime number at least as large as n.
+ * Assumes n > 0.
+ */
+template <class HashedObj>
+unsigned int HashTable<HashedObj>:: nextPrime( int n )
+{
+  assert(PRIMES[currentPrimeIndex] < MAX_PRIME);
+  currentPrimeIndex++;
+  return PRIMES[currentPrimeIndex];
+	  
+  if( n % 2 == 0 )
+    n++;
+
+  for( ; !isPrime( n ); n += 2 )
+    ;
+
+  return n;
+}
+
+/**
+ * Construct the hash table.
+ */
+template <class HashedObj>
+HashTable<HashedObj>::HashTable( const HashedObj & notFound, bool useQP, uint64_t size )
+  : ITEM_NOT_FOUND( notFound ), currentPrimeIndex(0), array( nextPrime( size ) ), QUADRATIC_PROBING(useQP)
+{
+  makeEmpty( );
+}
+
+/**
+ * Insert item x into the hash table. If the item is
+ * already present, then do nothing.
+ */
+template <class HashedObj>
+void HashTable<HashedObj>::insert( const HashedObj & x )
+{
+  // Insert x as active
+  int currentPos = findPos( x );
+  if( isActive( currentPos ) )
+    return;
+  array[ currentPos ] = HashEntry( x, ACTIVE );
+
+  // Rehash; see Section 5.5
+  if( ++currentSize > array.size( ) / 2 )
+    rehash( );
+}
+
+/**
+ * Expand the hash table.
+ */
+template <class HashedObj>
+void HashTable<HashedObj>::rehash( )
+{
+  std::vector<HashEntry> oldArray = array;
+
+  // Create new double-sized, empty table
+  array.resize( nextPrime( 2 * oldArray.size( ) ) );
+  for( uint64_t j = 0; j < array.size( ); j++ )
+    array[ j ].info = EMPTY;
+
+  // Copy table over
+  currentSize = 0;
+  for( uint64_t i = 0; i < oldArray.size( ); i++ )
+    if( oldArray[ i ].info == ACTIVE )
+      insert( oldArray[ i ].element );
+}
+
+/**
+ * Method that performs quadratic probing resolution.
+ * Return the position where the search for x terminates.
+ */
+template <class HashedObj>
+uint64_t HashTable<HashedObj>::findPos( const HashedObj & x ) const
+{
+  /* 1*/      uint64_t collisionNum = 0;
+  /* 2*/      uint64_t currentPos = weiss_hash( x, array.size( ) );
+  uint64_t origSlot = currentPos;
+
+  /* 3*/      while( array[ currentPos ].info != EMPTY &&
+		     array[ currentPos ].element != x )
+    {
+      currentPos = next_probe(x, origSlot, currentPos, ++collisionNum); 
+    }
+
+  /* 7*/      return currentPos;
+}
+
+
+/**
+ * Remove item x from the hash table.
+ */
+template <class HashedObj>
+void HashTable<HashedObj>::remove( const HashedObj & x )
+{
+  int currentPos = findPos( x );
+  if( isActive( currentPos ) )
+    array[ currentPos ].info = DELETED;
+}
+
+/**
+ * Find item x in the hash table.
+ * Return the matching item or ITEM_NOT_FOUND if not found
+ */
+template <class HashedObj>
+const HashedObj & HashTable<HashedObj>::find( const HashedObj & x ) const
+{
+  int currentPos = findPos( x );
+  if( isActive( currentPos ) )
+    return array[ currentPos ].element;
+  else
+    return ITEM_NOT_FOUND;
+}
+
+/**
+ * Make the hash table logically empty.
+ */
+template <class HashedObj>
+void HashTable<HashedObj>::makeEmpty( )
+{
+  currentSize = 0;
+  for( uint64_t i = 0; i < array.size( ); i++ )
+    array[ i ].info = EMPTY;
+}
+
+/**
+ * Deep copy.
+ */
+template <class HashedObj>
+const HashTable<HashedObj> & HashTable<HashedObj>::
+operator=( const HashTable<HashedObj> & rhs )
+{
+  if( this != &rhs )
+    {
+      array = rhs.array;
+      currentSize = rhs.currentSize;
+    }
+  return *this;
+}
+
+
+/**
+ * Return true if currentPos exists and is active.
+ */
+template <class HashedObj>
+bool HashTable<HashedObj>::isActive( uint64_t currentPos ) const
+{
+  return array[ currentPos ].info == ACTIVE;
+}
+
+/**
+ * A hash routine for string objects.
+ */
+uint64_t weiss_hash( const std::string & key, uint64_t tableSize )
+{
+  uint64_t hashVal = 0;
+
+  for( uint64_t i = 0; i < key.length( ); i++ )
+    hashVal = 37 * hashVal + key[ i ];
+
+  hashVal %= tableSize;
+  if( hashVal < 0 )
+    hashVal += tableSize;
+
+  return hashVal;
+}
+
+
+/**
+ * A hash routine for uint64_ts.
+ */
+uint64_t weiss_hash( uint64_t key, uint64_t tableSize )
+{
+  return key % tableSize;
+}
+
+
+template <class HashedObj>
+uint64_t HashTable<HashedObj>::next_probe( const HashedObj & value, uint64_t slot, 
+					   uint64_t prev_probe, uint64_t probe_count ) const {
+  if (QUADRATIC_PROBING) {
+    // NOTE: probe_count could be as large as n, in which case just
+    // subtracting the array's size DOES NOT work!
+    uint64_t result = prev_probe + 2*probe_count - 1;
+    if (result >= array.size())
+      return result % array.size();
+    else
+      return result;
+  }
+  else { // LINEAR PROBING
+    if (prev_probe + 1 >= array.size())
+      return 0;
+    else
+      return prev_probe + 1;
+  }
+}

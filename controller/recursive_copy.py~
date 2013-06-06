@@ -1,0 +1,156 @@
+#!/usr/bin/env python
+
+# Designed to allow a recursive copy from the localhost to the remote
+# host in Paramiko SFTP.  
+
+from __future__ import print_function # for testing only
+from __future__ import with_statement
+from constants import *
+
+# For testing only, paramiko:
+import paramiko
+import stat
+
+# Wrapper to allow use of with and good tear-down practice (adapted
+# from http://effbot.org/zone/python-with-statement.htm).
+class ParamikoTransportWrapper:
+    def __init__(self, host, port):
+        self.host = host
+        self.port = port
+        self.transport = None
+
+    def __enter__(self):
+        self.transport = paramiko.Transport((self.host, self.port))
+        return self.transport
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.transport is not None:
+            self.transport.close()
+        return False # allows any exception to be raised
+
+# Wrapper to allow use of with and good tear-down practice (adapted
+# from http://effbot.org/zone/python-with-statement.htm).
+class ParamikoSFTPWrapper:
+    def __init__(self, transport):
+        self.transport = transport
+        self.sftp = None
+
+    def __enter__(self):
+        self.sftp = paramiko.SFTPClient.from_transport(self.transport)
+        return self.sftp
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        if self.sftp is not None:
+            self.sftp.close()
+        return False # allows any exception to be raised
+
+
+# Adapted from the response by Jerub to
+# http://stackoverflow.com/questions/120656/directory-listing-in-python
+import os
+
+# Recursively walks top, performing file_operation on each file and
+# dir_operation on each directory.  Performs dir_operation on a
+# directory just before performing file_operation on each file in that
+# directory.  First call to dir_operation is on top.  Subdirectories
+# are called in an order defined by os.walk.
+#
+# For details of onerror and followlinks (and more details on the
+# recursive walk), see os.walk.
+def recursive_walk(top, file_operation, dir_operation, onerror=None, followlinks=False):
+    for dirpath, dirnames, filenames in os.walk(top, True, onerror, followlinks):
+        # Perform dir_operation on the directory itself first.
+        dir_operation(dirpath)
+
+        # Perform file_operation on each file.
+        for filename in filenames:
+            file_operation(os.path.join(dirpath, filename))
+
+        # for subdirname in dirnames:
+        #     dir_operation(os.path.join(dirpath, subdirname))
+
+        # # Advanced usage:
+        # # editing the 'dirnames' list will stop os.walk() from recursing into there.
+        # if '.git' in dirnames:
+        #     # don't go into any .git directories.
+        #     dirnames.remove('.git')
+
+
+# For testing only, SFTP a directory using paramiko:
+def sftp_testing(controller_top):
+    host = "ec2-54-242-199-187.compute-1.amazonaws.com"
+    port = 22
+    username = "ec2-user"
+    sshkeyfile = "/home/c/cs221x/dora/ssh-keys/steve-kuba-pair.pem"
+    mykey = paramiko.RSAKey.from_private_key_file(sshkeyfile)
+
+    # Note: using abspath and then basename should ensure that we get
+    # just the directory's name (and no more of the path) out.  This
+    # works whether controller_top is something like 'foo' or 'foo/'.
+    controller_path = os.path.abspath(controller_top)
+    web_server_path = '.'
+	
+    with ParamikoTransportWrapper(host,port) as transport:
+        transport.use_compression()
+        transport.connect(username = username, pkey = mykey)
+        with ParamikoSFTPWrapper(transport) as sftp:
+            recursive_walk(controller_path, 
+                           #lambda filename: print("sftp.put", filename, os.path.join(web_server_path, os.path.relpath(filename, os.path.dirname(controller_path)))),
+                           #lambda dirname: print("sftp.mkdir", os.path.join(web_server_path, os.path.relpath(dirname, os.path.dirname(controller_path)))))
+                           lambda filename: print("sftp.put", filename, os.path.join(web_server_path, os.path.relpath(filename, os.path.dirname(controller_path))), sftp.put(filename, os.path.join(web_server_path, os.path.relpath(filename, os.path.dirname(controller_path))))),
+                           lambda dirname: print("sftp.mkdir", os.path.join(web_server_path, os.path.relpath(dirname, os.path.dirname(controller_path))), sftp.mkdir(os.path.join(web_server_path, os.path.relpath(dirname, os.path.dirname(controller_path))))))
+    # sftp.close()
+    # transport.close()
+
+
+    # TODO: try out recursive_walk_remote.
+
+# Recursively walks top, performing file_operation on each file and
+# dir_operation on each directory.  Performs dir_operation on a
+# directory just before performing file_operation on each file in that
+# directory.  First call to dir_operation is on top.  Subdirectories
+# are called in an order defined by os.walk.
+#
+# For details of onerror and followlinks (and more details on the
+# recursive walk), see os.walk.
+def recursive_walk_remote(sftp, top, file_operation, dir_operation, topdown=False, onerror=None, followlinks=False):
+    try:
+        sftpattrib = None
+        if followlinks:
+            sftpattrib = sftp.stat(top)
+        else:
+            sftpattrib = sftp.lstat(top)
+
+        if not hasattr(sftpattrib, 'st_mode'):
+            raise "Unable to proceed with recursive_walk_remote b/c SFTP does not return the st_mode field used to tell whether items are files or directories on %s" % top
+
+        if stat.S_ISDIR(sftpattrib.st_mode):
+            # It's a directory.  Depending on pre vs. post order
+            # selection, either operate on it first or recursively
+            # operate on its children first.
+
+            if topdown:
+                dir_operation(top)
+            
+            # Question: could there be a problem if by this time top
+            # is NO LONGER a directory?  Security hole?  Exception
+            # issue?  Or, will exceptions on the far side handle this
+            # correctly?
+            for f in sftp.listdir(top):
+                pathname = os.path.join(top, f)
+                recursive_walk_remote(sftp, pathname, file_operation, dir_operation, topdown, onerror, followlinks)
+
+            if not topdown:
+                dir_operation(top)
+        elif stat.S_ISREG(sftpattrib.st_mode):
+            # It's a file.  Operate on it.
+            file_operation(top)
+        else:
+            # Unknown file type, print a message
+            # TODO: improve this.  Does it ever happen??
+            print('Skipping %s' % top)
+    except IOError as e:
+        if onerror is None:
+            pass
+        else:
+            onerror(e)

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Run with no arguments for help.
+
+if [ $# -ne 0 ]
+then
+echo 'Assumes that the dict_runner.cpp file has dictionary_descriptions["..."] = "..."'
+echo assignments in it, and counts them.
+echo
+echo Use this number to update constants.py when the number of dictionaries is
+echo changed.
+echo
+echo Number of dictionaries:
+fi
+
+grep 'dictionary_descriptions\["' ../dict_runner/dict_runner.cpp | wc -l

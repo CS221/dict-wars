@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Process everyone who has submitted source data.
+for i in ../runs/source/*; do echo $i; ./process_user `basename $i`; done

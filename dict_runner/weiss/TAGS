@@ -1,0 +1,1016 @@
+
+AATree.h,587
+        #define AA_TREE_H_2,27
+        class AANode28,999
+            Comparable element;AANode::element30,1030
+            AANode    *left;AANode::left31,1062
+            AANode    *right;AANode::right32,1091
+            int        level;AANode::level33,1121
+            AANode(AANode::AANode35,1152
+            AANode(AANode::AANode36,1220
+        class AATree43,1464
+            AANode<Comparable> *root;AATree::root62,2087
+            const Comparable ITEM_NOT_FOUND;AATree::ITEM_NOT_FOUND63,2125
+            AANode<Comparable> *nullNode;AATree::nullNode64,2170
+
+AvlTree.h,486
+        #define AVL_TREE_H_2,28
+        class AvlNode11,257
+            Comparable element;AvlNode::element13,289
+            AvlNode   *left;AvlNode::left14,321
+            AvlNode   *right;AvlNode::right15,350
+            int       height;AvlNode::height16,380
+            AvlNode(AvlNode::AvlNode18,411
+        class AvlTree41,1437
+            AvlNode<Comparable> *root;AvlTree::root61,2068
+            const Comparable ITEM_NOT_FOUND;AvlTree::ITEM_NOT_FOUND62,2107
+
+BinaryHeap.h,208
+        #define BINARY_HEAP_H_2,31
+        class BinaryHeap22,862
+            int                currentSize;BinaryHeap::currentSize37,1273
+            vector<Comparable> array;BinaryHeap::array38,1348
+
+BinarySearchTree.h,496
+        #define BINARY_SEARCH_TREE_H_2,38
+        class BinaryNode13,375
+            Comparable element;BinaryNode::element15,410
+            BinaryNode *left;BinaryNode::left16,442
+            BinaryNode *right;BinaryNode::right17,472
+            BinaryNode(BinaryNode::BinaryNode19,504
+        class BinarySearchTree40,1435
+            BinaryNode<Comparable> *root;BinarySearchTree::root60,2129
+            const Comparable ITEM_NOT_FOUND;BinarySearchTree::ITEM_NOT_FOUND61,2171
+
+BinomialQueue.h,531
+        #define BINOMIAL_QUEUE_H_2,34
+        class BinomialNode30,1060
+            Comparable    element;BinomialNode::element32,1097
+            BinomialNode *leftChild;BinomialNode::leftChild33,1132
+            BinomialNode *nextSibling;BinomialNode::nextSibling34,1169
+            BinomialNode(BinomialNode::BinomialNode36,1209
+        class BinomialQueue43,1508
+            int currentSize;BinomialQueue::currentSize63,2106
+            vector<BinomialNode<Comparable> *> theTrees;BinomialQueue::theTrees64,2191
+
+bool.h,86
+#define BOOL_H2,15
+typedef int bool;4,31
+const int false 5,49
+const int true 6,70
+
+CursorList.h,856
+        #define CursorList_H2,29
+#define List 4,59
+        class List31,1157
+            struct CursorNodeList::CursorNode48,1705
+                CursorNode(List::CursorNode::CursorNode50,1749
+                CursorNode(List::CursorNode::CursorNode53,1819
+                Object element;List::CursorNode::element56,1940
+                int    next;List::CursorNode::next57,1972
+            int header;List::header66,2183
+            static vector<CursorNode> cursorSpace;List::cursorSpace68,2208
+        class ListItr88,2886
+            ListItr(ListItr::ListItr91,2936
+            bool isPastEnd(ListItr::isPastEnd92,2978
+            void advance(ListItr::advance94,3053
+            const Object & retrieve(ListItr::retrieve96,3172
+            int current;ListItr::current101,3365
+            ListItr(ListItr::ListItr104,3456
+
+DisjSets.h,111
+        #define DISJ_SETS_H_2,29
+        class DisjSets21,673
+             vector<int> s;DisjSets::s31,921
+
+dsexceptions.h,162
+        #define DSEXCEPTIONS_H_2,32
+        class Underflow 4,65
+        class Overflow 5,94
+        class OutOfMemory 6,123
+        class BadIterator 7,154
+
+DSL.h,541
+        #define DSL_H_2,23
+        class SkipNode29,1060
+            Comparable element;SkipNode::element31,1093
+            SkipNode  *right;SkipNode::right32,1125
+            SkipNode  *down;SkipNode::down33,1155
+            SkipNode(SkipNode::SkipNode35,1185
+        class DSL44,1487
+            const Comparable INFINITY;DSL::INFINITY63,2084
+            SkipNode<Comparable> *header;DSL::header64,2123
+            SkipNode<Comparable> *bottom;DSL::bottom65,2178
+            SkipNode<Comparable> *tail;DSL::tail66,2220
+
+IntCell.h,117
+        #define IntCell_H_2,27
+        class IntCell7,137
+            int storedValue;IntCell::storedValue14,324
+
+LeftistHeap.h,465
+        #define BINARY_HEAP_H_2,31
+        class LeftistNode28,1034
+            Comparable   element;LeftistNode::element30,1070
+            LeftistNode *left;LeftistNode::left31,1104
+            LeftistNode *right;LeftistNode::right32,1135
+            int          npl;LeftistNode::npl33,1167
+            LeftistNode(LeftistNode::LeftistNode35,1198
+        class LeftistHeap42,1516
+            LeftistNode<Comparable> *root;LeftistHeap::root62,2098
+
+LinkedList.h,662
+        #define LinkedList_H2,29
+        class ListNode32,1191
+            ListNode(ListNode::ListNode34,1224
+            Object   element;ListNode::element37,1361
+            ListNode *next;ListNode::next38,1391
+        class List46,1546
+            ListNode<Object> *header;List::header65,2152
+        class ListItr79,2655
+            ListItr(ListItr::ListItr82,2705
+            bool isPastEnd(ListItr::isPastEnd83,2750
+            void advance(ListItr::advance85,2828
+            const Object & retrieve(ListItr::retrieve87,2919
+            ListNode<Object> *current;ListItr::current92,3084
+            ListItr(ListItr::ListItr94,3147
+
+matrix.h,302
+        #define MATRIX_H2,25
+        class matrix7,112
+            matrix(matrix::matrix10,161
+            matrix(matrix::matrix15,341
+            int numrows(matrix::numrows20,599
+            int numcols(matrix::numcols22,672
+            vector< vector<Object> > array;matrix::array25,786
+
+MemoryCell.h,129
+        #define MEMORY_CELL_H2,30
+        class MemoryCell8,166
+            Object storedValue;MemoryCell::storedValue15,400
+
+mystring.h,410
+#define MY_STRING_H_2,21
+#define string 11,234
+class StringIndexOutOfBounds 13,257
+class string15,292
+    ~string(string::~string20,460
+    const char *c_str(string::c_str26,685
+    int length(string::length28,773
+    enum { MAX_LENGTH string::MAX_LENGTH34,987
+    char *buffer;string::buffer37,1067
+    int strLength;string::strLength38,1128
+    int bufferLength;string::bufferLength39,1201
+
+PairingHeap.h,463
+        #define PAIRING_HEAP_H_2,32
+        class PairNode29,1091
+            Comparable   element;PairNode::element31,1124
+            PairNode    *leftChild;PairNode::leftChild32,1158
+            PairNode    *nextSibling;PairNode::nextSibling33,1194
+            PairNode    *prev;PairNode::prev34,1232
+            PairNode(PairNode::PairNode36,1264
+        class PairingHeap42,1512
+            PairNode<Comparable> *root;PairingHeap::root62,2150
+
+QuadraticProbing.h,891
+        #define QUADRATIC_PROBING_H_2,37
+        class HashTable19,656
+            HashTable(HashTable::HashTable23,786
+            enum EntryType HashTable::EntryType35,1220
+            enum EntryType { ACTIVE,HashTable::EntryType::ACTIVE35,1220
+            enum EntryType { ACTIVE, EMPTY,HashTable::EntryType::EMPTY35,1220
+            enum EntryType { ACTIVE, EMPTY, DELETED HashTable::EntryType::DELETED35,1220
+            struct HashEntryHashTable::HashEntry37,1294
+                HashedObj element;HashTable::HashEntry::element39,1337
+                EntryType info;HashTable::HashEntry::info40,1372
+                HashEntry(HashTable::HashEntry::HashEntry42,1405
+            vector<HashEntry> array;HashTable::array46,1566
+            int currentSize;HashTable::currentSize47,1603
+            const HashedObj ITEM_NOT_FOUND;HashTable::ITEM_NOT_FOUND48,1632
+
+QueueAr.h,294
+        #define QUEUEAR_H2,26
+        class Queue22,874
+            vector<Object> theArray;Queue::theArray36,1216
+            int            currentSize;Queue::currentSize37,1253
+            int            front;Queue::front38,1293
+            int            back;Queue::back39,1327
+
+Random.h,103
+        #define RANDOM_H_2,26
+        class Random17,674
+            int state;Random::state28,943
+
+RedBlackTree.h,1059
+        #define RED_BLACK_TREE_H_2,34
+        class RedBlackNode30,1077
+            Comparable    element;RedBlackNode::element32,1114
+            RedBlackNode *left;RedBlackNode::left33,1149
+            RedBlackNode *right;RedBlackNode::right34,1181
+            int           color;RedBlackNode::color35,1214
+            RedBlackNode(RedBlackNode::RedBlackNode39,1369
+        class RedBlackTree47,1742
+            enum { RED,RedBlackTree::RED64,2314
+            enum { RED, BLACK RedBlackTree::BLACK64,2314
+            RedBlackNode<Comparable> *header;RedBlackTree::header69,2440
+            const Comparable ITEM_NOT_FOUND;RedBlackTree::ITEM_NOT_FOUND70,2525
+            RedBlackNode<Comparable> *nullNode;RedBlackTree::nullNode71,2570
+            RedBlackNode<Comparable> *current;RedBlackTree::current74,2696
+            RedBlackNode<Comparable> *parent;RedBlackTree::parent75,2743
+            RedBlackNode<Comparable> *grand;RedBlackTree::grand76,2789
+            RedBlackNode<Comparable> *great;RedBlackTree::great77,2834
+
+SeparateChaining.h,277
+        #define SEPARATE_CHAINING_H_2,37
+        class HashTable22,805
+            HashTable(HashTable::HashTable26,935
+            vector<List<HashedObj> > theLists;HashTable::theLists37,1345
+            const HashedObj ITEM_NOT_FOUND;HashTable::ITEM_NOT_FOUND38,1416
+
+Sort.h,891
+        #define SORT_H_2,24
+#define merge 4,49
+#define swap 5,69
+        void insertionSort(17,335
+        void shellsort(34,798
+        void heapsort(52,1339
+        inline int leftChild(68,1878
+        void percDown(80,2231
+        void mergeSort(102,2849
+        void mergeSort(117,3365
+        void merge(138,4220
+        void quicksort(167,5289
+        inline void swap(176,5490
+        const Comparable & median3(188,5816
+        void quicksort(211,6724
+        void insertionSort(246,7963
+        void quickSelect(266,8603
+        void quickSelect(282,9204
+        class Pointer316,10331
+            Pointer(Pointer::Pointer319,10381
+            bool operator<(Pointer::operator<321,10449
+            operator Comparable Pointer::operator Comparable323,10555
+            Comparable *pointee;Pointer::pointee326,10652
+        void largeObjectSort(334,10862
+
+SplayTree.h,602
+        #define SPLAY_TREE_H_2,30
+        class BinaryNode28,1011
+            Comparable  element;BinaryNode::element30,1046
+            BinaryNode *left;BinaryNode::left31,1079
+            BinaryNode *right;BinaryNode::right32,1109
+            BinaryNode(BinaryNode::BinaryNode34,1141
+            BinaryNode(BinaryNode::BinaryNode35,1201
+        class SplayTree43,1454
+            BinaryNode<Comparable> *root;SplayTree::root63,2081
+            BinaryNode<Comparable> *nullNode;SplayTree::nullNode64,2123
+            const Comparable ITEM_NOT_FOUND;SplayTree::ITEM_NOT_FOUND65,2169
+
+StackAr.h,184
+        #define STACKAR_H2,26
+        class Stack23,945
+            vector<Object> theArray;Stack::theArray38,1306
+            int            topOfStack;Stack::topOfStack39,1343
+
+StackLi.h,359
+        #define STACKLI_H2,26
+        class Stack23,948
+            struct ListNodeStack::ListNode42,1404
+                Object   element;Stack::ListNode::element44,1446
+                ListNode *next;Stack::ListNode::next45,1480
+                ListNode(Stack::ListNode::ListNode47,1513
+            ListNode *topOfStack;Stack::topOfStack51,1661
+
+Treap.h,684
+        #define TREAP_H_2,25
+        class TreapNode30,1049
+            Comparable element;TreapNode::element32,1083
+            TreapNode *left;TreapNode::left33,1115
+            TreapNode *right;TreapNode::right34,1144
+            int        priority;TreapNode::priority35,1174
+            TreapNode(TreapNode::TreapNode37,1208
+            TreapNode(TreapNode::TreapNode38,1288
+        class Treap46,1571
+            TreapNode<Comparable> *root;Treap::root66,2188
+            const Comparable ITEM_NOT_FOUND;Treap::ITEM_NOT_FOUND67,2229
+            TreapNode<Comparable> *nullNode;Treap::nullNode68,2274
+            Random randomNums;Treap::randomNums69,2319
+
+vector.h,338
+#define VECTOR_H2,17
+#define vector 4,35
+class ArrayIndexOutOfBounds 6,58
+class vector9,116
+    explicit vector(vector::vector12,141
+    vector(vector::vector14,252
+    ~vector(vector::~vector16,331
+    int size(vector::size23,457
+    int currentSize;vector::currentSize48,1230
+    Object * objects;vector::objects49,1251
+
+AATree.cpp,1174
+        AATree<Comparable>::AATree(AATree8,142
+        AATree<Comparable>::AATree(AATree21,523
+        AATree<Comparable>::~AATree(~AATree34,933
+        void AATree<Comparable>::insert(insert44,1167
+        void AATree<Comparable>::remove(remove53,1413
+        const Comparable & AATree<Comparable>::findMin(findMin63,1696
+        const Comparable & AATree<Comparable>::findMax(findMax80,2173
+        find(98,2695
+        void AATree<Comparable>::makeEmpty(makeEmpty120,3334
+        bool AATree<Comparable>::isEmpty(isEmpty130,3590
+        void AATree<Comparable>::printTree(printTree139,3810
+        AATree<Comparable>::operator=(operator=152,4133
+        insert(171,4642
+        remove(194,5355
+        void AATree<Comparable>::makeEmpty(makeEmpty242,7087
+        void AATree<Comparable>::printTree(printTree258,7541
+        void AATree<Comparable>::rotateWithLeftChild(rotateWithLeftChild273,7930
+        void AATree<Comparable>::rotateWithRightChild(rotateWithRightChild285,8282
+        void AATree<Comparable>::skew(skew298,8668
+        void AATree<Comparable>::split(split309,8995
+        AATree<Comparable>::clone(clone323,9375
+
+AvlTree.cpp,1617
+        AvlTree<Comparable>::AvlTree(AvlTree13,305
+        AvlTree<Comparable>::AvlTree(AvlTree22,536
+        AvlTree<Comparable>::~AvlTree(~AvlTree32,812
+        void AvlTree<Comparable>::insert(insert41,1019
+        void AvlTree<Comparable>::remove(remove50,1266
+        const Comparable & AvlTree<Comparable>::findMin(findMin61,1622
+        const Comparable & AvlTree<Comparable>::findMax(findMax71,1926
+                                 find(82,2274
+        void AvlTree<Comparable>::makeEmpty(makeEmpty91,2514
+        bool AvlTree<Comparable>::isEmpty(isEmpty101,2771
+        void AvlTree<Comparable>::printTree(printTree110,2988
+        operator=(operator=124,3337
+        const Comparable & AvlTree<Comparable>::elementAt(elementAt139,3755
+        void AvlTree<Comparable>::insert(insert153,4178
+        AvlTree<Comparable>::findMin(findMin186,5422
+        AvlTree<Comparable>::findMax(findMax202,5864
+        AvlTree<Comparable>::find(find220,6380
+        void AvlTree<Comparable>::makeEmpty(makeEmpty237,6879
+        AvlTree<Comparable>::clone(clone253,7295
+        int AvlTree<Comparable>::height(height266,7728
+        int AvlTree<Comparable>::max(max275,7970
+        void AvlTree<Comparable>::rotateWithLeftChild(rotateWithLeftChild286,8318
+        void AvlTree<Comparable>::rotateWithRightChild(rotateWithRightChild302,8928
+        void AvlTree<Comparable>::doubleWithLeftChild(doubleWithLeftChild319,9615
+        void AvlTree<Comparable>::doubleWithRightChild(doubleWithRightChild332,10110
+        void AvlTree<Comparable>::printTree(printTree343,10484
+
+BinaryHeap.cpp,658
+        BinaryHeap<Comparable>::BinaryHeap(BinaryHeap8,187
+        void BinaryHeap<Comparable>::insert(insert19,536
+        const Comparable & BinaryHeap<Comparable>::findMin(findMin36,1090
+        void BinaryHeap<Comparable>::deleteMin(deleteMin48,1433
+        void BinaryHeap<Comparable>::deleteMin(deleteMin62,1833
+        void BinaryHeap<Comparable>::buildHeap(buildHeap77,2279
+        bool BinaryHeap<Comparable>::isEmpty(isEmpty88,2609
+        bool BinaryHeap<Comparable>::isFull(isFull98,2887
+        void BinaryHeap<Comparable>::makeEmpty(makeEmpty107,3126
+        void BinaryHeap<Comparable>::percolateDown(percolateDown117,3404
+
+BinarySearchTree.cpp,1180
+        BinarySearchTree<Comparable>::BinarySearchTree(BinarySearchTree13,303
+        BinarySearchTree(24,592
+        BinarySearchTree<Comparable>::~BinarySearchTree(~BinarySearchTree34,867
+        void BinarySearchTree<Comparable>::insert(insert43,1092
+        void BinarySearchTree<Comparable>::remove(remove52,1348
+        const Comparable & BinarySearchTree<Comparable>::findMin(findMin63,1642
+        const Comparable & BinarySearchTree<Comparable>::findMax(findMax73,1955
+                                 find(84,2321
+        void BinarySearchTree<Comparable>::makeEmpty(makeEmpty93,2561
+        bool BinarySearchTree<Comparable>::isEmpty(isEmpty103,2827
+        void BinarySearchTree<Comparable>::printTree(printTree112,3053
+        operator=(operator=126,3429
+        elementAt(142,3914
+        insert(158,4375
+        remove(178,5046
+        BinarySearchTree<Comparable>::findMin(findMin205,5991
+        BinarySearchTree<Comparable>::findMax(findMax220,6462
+        find(237,7013
+        makeEmpty(271,8120
+        void BinarySearchTree<Comparable>::printTree(printTree286,8513
+        BinarySearchTree<Comparable>::clone(clone301,8937
+
+BinomialQueue.cpp,1096
+        static const int MAX_TREES 4,70
+        BinomialQueue<Comparable>::BinomialQueue(BinomialQueue10,213
+        BinomialQueue(22,581
+        BinomialQueue<Comparable>::~BinomialQueue(~BinomialQueue31,829
+        void BinomialQueue<Comparable>::merge(merge42,1152
+        BinomialQueue<Comparable>::combineTrees(combineTrees105,3439
+        void BinomialQueue<Comparable>::insert(insert121,4068
+        const Comparable & BinomialQueue<Comparable>::findMin(findMin135,4502
+        int BinomialQueue<Comparable>::findMinIndex(findMinIndex150,4979
+        void BinomialQueue<Comparable>::deleteMin(deleteMin171,5582
+        void BinomialQueue<Comparable>::deleteMin(deleteMin183,5896
+        bool BinomialQueue<Comparable>::isEmpty(isEmpty215,6990
+        bool BinomialQueue<Comparable>::isFull(isFull225,7271
+        void BinomialQueue<Comparable>::makeEmpty(makeEmpty234,7507
+        operator=(operator=247,7870
+        int BinomialQueue<Comparable>::capacity(capacity264,8406
+        makeEmpty(274,8701
+        BinomialQueue<Comparable>::clone(clone291,9117
+
+BuggyIntCell.cpp,275
+        class IntCell6,116
+            explicit IntCell(IntCell::IntCell9,166
+            int read(IntCell::read12,277
+            void write(IntCell::write14,346
+            int *storedValue;IntCell::storedValue17,433
+        int f(24,523
+        int main(37,789
+
+Concordance1.cpp,46
+ostream & operator<<(20,284
+int main(28,530
+
+Concordance2.cpp,359
+struct WordEntry13,226
+    WordEntry(WordEntry::WordEntry15,245
+    bool operator<(WordEntry::operator<18,301
+    bool operator==(WordEntry::operator==20,385
+    string       word;WordEntry::word23,472
+    List<int>    *lines;WordEntry::lines24,495
+    ListItr<int> *listEnd;WordEntry::listEnd25,520
+ostream & operator<<(28,551
+int main(42,926
+
+CursorList.cpp,831
+        void List<Object>::initializeCursorSpace(initializeCursorSpace7,139
+        int List<Object>::alloc(alloc25,702
+        void List<Object>::free(free36,967
+        List<Object>::List(List47,1214
+        List<Object>::List(List58,1462
+        List<Object>::~List(~List70,1760
+        bool List<Object>::isEmpty(isEmpty81,2020
+        void List<Object>::makeEmpty(makeEmpty90,2235
+        ListItr<Object> List<Object>::zeroth(zeroth100,2493
+        ListItr<Object> List<Object>::first(first110,2793
+        void List<Object>::insert(insert119,3023
+        ListItr<Object> List<Object>::find(find136,3575
+        ListItr<Object> List<Object>::findPrevious(findPrevious150,4001
+        void List<Object>::remove(remove165,4454
+        const List<Object> & List<Object>::operator=(operator=183,4932
+
+DisjSets.cpp,147
+        DisjSets::DisjSets(7,165
+        void DisjSets::unionSets(20,569
+        int DisjSets::find(38,1147
+        int DisjSets::find(52,1489
+
+DSL.cpp,760
+        DSL<Comparable>::DSL(DSL9,205
+        DSL<Comparable>::DSL(DSL23,685
+        DSL<Comparable>::~DSL(~DSL32,941
+        void DSL<Comparable>::insert(insert44,1199
+        void DSL<Comparable>::remove(remove75,2341
+        const Comparable & DSL<Comparable>::findMin(findMin86,2687
+        const Comparable & DSL<Comparable>::findMax(findMax103,3175
+        const Comparable & DSL<Comparable>::find(find123,3823
+        void DSL<Comparable>::makeEmpty(makeEmpty141,4386
+        bool DSL<Comparable>::isEmpty(isEmpty153,4714
+        elementAt(164,5087
+        void DSL<Comparable>::printList(printList176,5358
+        DSL<Comparable>::operator=(operator=195,5867
+        void DSL<Comparable>::reclaimMemory(reclaimMemory208,6246
+
+Fig01_02.cpp,45
+        int f(3,35
+        int main(11,195
+
+Fig01_03.cpp,47
+        int bad(3,31
+        int main(11,194
+
+Fig01_04.cpp,84
+        void printDigit(3,31
+        void printOut(9,134
+        int main(17,316
+
+Fig01_05.cpp,289
+        class IntCell7,115
+            IntCell(IntCell::IntCell14,270
+            IntCell(IntCell::IntCell21,445
+            int read(IntCell::read27,604
+            void write(IntCell::write33,744
+            int storedValue;IntCell::storedValue37,831
+        int main(40,872
+
+Fig01_06.cpp,253
+        class IntCell7,115
+/* 1*/      explicit IntCell(IntCell::IntCell10,165
+/* 3*/      int read(IntCell::read12,266
+/* 5*/      void write(IntCell::write14,334
+/* 7*/      int storedValue;IntCell::storedValue17,420
+        int main(20,461
+
+Fig01_10.cpp,24
+        int main(6,177
+
+Fig01_11.cpp,23
+        int main(4,60
+
+Fig01_16.cpp,374
+        class IntCell2,30
+            int *storedValue;IntCell::storedValue14,350
+        IntCell::IntCell(17,392
+        IntCell::IntCell(22,509
+        IntCell::~IntCell(27,633
+        const IntCell & IntCell::operator=(IntCell::operator=32,715
+        int IntCell::read(39,908
+        void IntCell::write(44,997
+        int f(53,1133
+        int main(66,1399
+
+Fig01_19.cpp,321
+        class MemoryCell9,167
+            explicit MemoryCell(MemoryCell::MemoryCell12,220
+            const Object & read(MemoryCell::read14,343
+            void write(MemoryCell::write16,422
+            Object storedValue;MemoryCell::storedValue19,519
+        string operator+(25,656
+        int main(32,824
+
+Fig01_23.cpp,387
+        class Employee5,89
+            void setValue(Employee::setValue8,140
+            void print(Employee::print11,237
+            bool operator< Employee::operator<13,339
+            string name;Employee::name18,526
+            double salary;Employee::salary19,551
+        ostream & operator<< 23,642
+        const Comparable & findMax(36,1022
+        int main(46,1303
+
+Fig02_09.cpp,92
+        const int NOT_FOUND 4,59
+        int binarySearch(12,323
+        int main(32,887
+
+Fig02_10.cpp,48
+        long gcd(4,56
+        int main(17,306
+
+Fig02_11.cpp,75
+        bool isEven(3,31
+        long pow(9,137
+        int main(23,467
+
+Fig10_38.cpp,63
+        matrix<int> operator*(10,222
+        int main(29,781
+
+Fig10_40.cpp,78
+        int fib(7,145
+        int fibonacci(20,435
+        int main(38,842
+
+Fig10_43.cpp,51
+        double eval(4,57
+        int main(18,374
+
+Fig10_45.cpp,51
+        double eval(5,85
+        int main(22,468
+
+Fig10_46.cpp,92
+        const long INFINITY 6,113
+        void optMatrix(18,698
+        int main(45,1758
+
+Fig10_53.cpp,93
+        const int NOT_A_VERTEX 5,85
+        void allPairs(18,598
+        int main(44,1515
+
+Fig10_62.cpp,156
+        typedef int HugeInt;4,59
+        HugeInt witness(13,383
+        const int TRIALS 36,1052
+        bool isPrime(45,1358
+        int main(56,1646
+
+FigA_04.cpp,24
+        int main(6,113
+
+FigA_05.cpp,389
+        class Queue7,148
+            list<Object>   theList;Queue::theList17,405
+        bool Queue<Object>::isEmpty(isEmpty21,485
+        const Object & Queue<Object>::getFront(getFront27,620
+        void Queue<Object>::makeEmpty(makeEmpty35,831
+        Object Queue<Object>::dequeue(dequeue42,986
+        void Queue<Object>::enqueue(enqueue50,1188
+        int main(56,1302
+
+FigA_06.cpp,61
+        void printCollection(8,187
+        int main(15,401
+
+FindMax.cpp,68
+        const Comparable & findMax(15,425
+        int main(25,706
+
+Graph1.cpp,873
+int INFINITY 15,218
+struct Vertex17,243
+    string           name;Vertex::name19,259
+    vector<Vertex *> adj;Vertex::adj20,303
+    int              dist;Vertex::dist21,353
+    Vertex          *path;Vertex::path22,390
+    Vertex(Vertex::Vertex24,456
+    void reset(Vertex::reset27,522
+typedef map<string,string32,585
+typedef map<string,Vertex *> vmap;32,585
+typedef pair<string,string33,620
+typedef pair<string,Vertex *> vpair;33,620
+class Graph36,659
+    Graph(Graph::Graph39,683
+    vmap vertexMap;Graph::vertexMap50,1032
+    vector<Vertex *> allVertices;Graph::allVertices51,1052
+void Graph::addEdge(56,1092
+void Graph::printPath(63,1280
+Vertex * Graph::getVertex(83,1775
+void Graph::printPath(97,2127
+void Graph::clearAll(107,2303
+Graph::~Graph(113,2419
+void Graph::unweighted(120,2526
+bool processRequest(156,3310
+int main(180,3851
+
+Graph2.cpp,1126
+int INFINITY 15,276
+struct Vertex17,301
+    string         name;Vertex::name19,317
+    List<Vertex *> adj;Vertex::adj20,359
+    int            dist;Vertex::dist21,407
+    Vertex        *path;Vertex::path22,442
+    Vertex(Vertex::Vertex24,506
+    void reset(Vertex::reset27,572
+struct MapEntry31,634
+    string  vertexName;MapEntry::vertexName33,652
+    Vertex *storedVertex;MapEntry::storedVertex34,676
+    MapEntry(MapEntry::MapEntry36,703
+    bool operator!=(MapEntry::operator!=38,813
+    bool operator==(MapEntry::operator==40,910
+int hash(44,1011
+class Graph49,1106
+    Graph(Graph::Graph52,1130
+    HashTable<MapEntry> vertexMap;Graph::vertexMap63,1525
+    List<Vertex *> allVertices;Graph::allVertices64,1560
+    int numVertices;Graph::numVertices65,1592
+    const MapEntry ITEM_NOT_FOUND;Graph::ITEM_NOT_FOUND66,1613
+void Graph::addEdge(71,1654
+void Graph::printPath(78,1857
+Vertex * Graph::getVertex(97,2366
+void Graph::printPath(114,2845
+void Graph::clearAll(124,3021
+Graph::~Graph(131,3185
+void Graph::unweighted(139,3340
+bool processRequest(175,4201
+int main(199,4742
+
+IntCell.cpp,102
+        IntCell::IntCell(7,106
+        int IntCell::read(14,262
+        void IntCell::write(22,394
+
+KdTree.cpp,610
+    class KdTree9,180
+        KdTree(KdTree::KdTree12,217
+        void insert(KdTree::insert14,255
+        void printRange(KdTree::printRange24,510
+        struct KdNodeKdTree::KdNode31,715
+            vector<Comparable> data;KdTree::KdNode::data33,747
+            KdNode            *left;KdTree::KdNode::left34,784
+            KdNode            *right;KdTree::KdNode::right35,821
+            KdNode(KdTree::KdNode::KdNode37,860
+        KdNode *root;KdTree::root41,988
+        void insert(KdTree::insert43,1011
+        void printRange(KdTree::printRange54,1344
+        int main(74,2138
+
+LeftistHeap.cpp,1076
+        LeftistHeap<Comparable>::LeftistHeap(LeftistHeap8,167
+        LeftistHeap<Comparable>::LeftistHeap(LeftistHeap17,350
+        LeftistHeap<Comparable>::~LeftistHeap(~LeftistHeap28,604
+        void LeftistHeap<Comparable>::merge(merge38,869
+        LeftistHeap<Comparable>::merge(merge53,1323
+        LeftistHeap<Comparable>::merge1(merge172,1965
+        void LeftistHeap<Comparable>::swapChildren(swapChildren91,2617
+        void LeftistHeap<Comparable>::insert(insert102,2972
+        const Comparable & LeftistHeap<Comparable>::findMin(findMin112,3313
+        void LeftistHeap<Comparable>::deleteMin(deleteMin124,3661
+        void LeftistHeap<Comparable>::deleteMin(deleteMin139,4123
+        bool LeftistHeap<Comparable>::isEmpty(isEmpty150,4445
+        bool LeftistHeap<Comparable>::isFull(isFull160,4720
+        void LeftistHeap<Comparable>::makeEmpty(makeEmpty169,4933
+        operator=(operator=181,5221
+        void LeftistHeap<Comparable>::reclaimMemory(reclaimMemory197,5682
+        LeftistHeap<Comparable>::clone(clone214,6213
+
+LinkedList.cpp,652
+        List<Object>::List(List7,119
+        List<Object>::List(List16,297
+        List<Object>::~List(~List26,519
+        bool List<Object>::isEmpty(isEmpty37,778
+        void List<Object>::makeEmpty(makeEmpty46,982
+        ListItr<Object> List<Object>::zeroth(zeroth56,1240
+        ListItr<Object> List<Object>::first(first66,1540
+        void List<Object>::insert(insert75,1756
+        ListItr<Object> List<Object>::find(find86,2161
+        ListItr<Object> List<Object>::findPrevious(findPrevious100,2562
+        void List<Object>::remove(remove114,2957
+        const List<Object> & List<Object>::operator=(operator=130,3422
+
+MaxSumTest.cpp,211
+        int maxSubSum1(8,172
+        int maxSubSum2(33,783
+        int max3(56,1312
+        int maxSumRec(67,1676
+        int maxSubSum3(103,2931
+        int maxSubSum4(114,3183
+        int main(135,3650
+
+MemoryCell.cpp,171
+        MemoryCell<Object>::MemoryCell(MemoryCell7,143
+        const Object & MemoryCell<Object>::read(read16,366
+        void MemoryCell<Object>::write(write25,552
+
+PairingHeap.cpp,988
+        PairingHeap<Comparable>::PairingHeap(PairingHeap8,167
+        PairingHeap<Comparable>::PairingHeap(PairingHeap18,350
+        PairingHeap<Comparable>::~PairingHeap(~PairingHeap28,602
+        PairingHeap<Comparable>::insert(insert39,928
+        const Comparable & PairingHeap<Comparable>::findMin(findMin55,1429
+        void PairingHeap<Comparable>::deleteMin(deleteMin67,1777
+        void PairingHeap<Comparable>::deleteMin(deleteMin87,2332
+        bool PairingHeap<Comparable>::isEmpty(isEmpty98,2654
+        bool PairingHeap<Comparable>::isFull(isFull108,2929
+        void PairingHeap<Comparable>::makeEmpty(makeEmpty117,3142
+        PairingHeap<Comparable>::operator=(operator=128,3396
+        void PairingHeap<Comparable>::reclaimMemory(reclaimMemory144,3833
+        void PairingHeap<Comparable>::decreaseKey(decreaseKey162,4474
+        compareAndLink(192,5660
+        combineSiblings(231,7093
+        PairingHeap<Comparable>::clone(clone278,8942
+
+Polynomial.cpp,513
+    class Polynomial8,197
+        enum { MAX_DEGREE Polynomial::MAX_DEGREE10,224
+        vector<int> coeffArray;Polynomial::coeffArray21,573
+        int highPower;Polynomial::highPower22,605
+        int max(26,637
+        Polynomial::Polynomial(31,725
+        void Polynomial::zeroPolynomial(36,841
+        Polynomial Polynomial::operator+(43,1020
+        Polynomial Polynomial::operator*(53,1359
+        void Polynomial::print(67,1913
+        ostream & operator<<(74,2143
+        int main(80,2288
+
+QuadraticProbing.cpp,638
+        bool isPrime(9,199
+        int nextPrime(28,653
+        HashTable<HashedObj>::HashTable(HashTable43,936
+        void HashTable<HashedObj>::insert(insert54,1295
+        void HashTable<HashedObj>::rehash(rehash71,1801
+        int HashTable<HashedObj>::findPos(findPos92,2541
+        void HashTable<HashedObj>::remove(remove113,3174
+        const HashedObj & HashTable<HashedObj>::find(find125,3564
+        void HashTable<HashedObj>::makeEmpty(makeEmpty138,3966
+        operator=(operator=150,4299
+        bool HashTable<HashedObj>::isActive(isActive165,4660
+        int hash(173,4874
+        int hash(191,5276
+
+QueueAr.cpp,430
+        Queue<Object>::Queue(Queue7,118
+        bool Queue<Object>::isEmpty(isEmpty17,388
+        bool Queue<Object>::isFull(isFull27,644
+        void Queue<Object>::makeEmpty(makeEmpty36,860
+        const Object & Queue<Object>::getFront(getFront49,1219
+        Object Queue<Object>::dequeue(dequeue61,1570
+        void Queue<Object>::enqueue(enqueue77,1972
+        void Queue<Object>::increment(increment90,2319
+
+Random.cpp,327
+        static const int A 4,30
+        static const int M 5,66
+        static const int Q 6,107
+        static const int R 7,143
+        Random::Random(12,258
+        int Random::randomInt(26,587
+        int Random::randomIntWRONG(41,974
+        double Random::random0_1(50,1208
+        int Random::randomInt(59,1434
+
+RedBlackTree.cpp,1243
+        RedBlackTree<Comparable>::RedBlackTree(RedBlackTree9,235
+        RedBlackTree<Comparable>::RedBlackTree(RedBlackTree22,690
+        RedBlackTree<Comparable>::~RedBlackTree(~RedBlackTree36,1201
+        void RedBlackTree<Comparable>::insert(insert47,1490
+        void RedBlackTree<Comparable>::remove(remove80,2611
+        const Comparable & RedBlackTree<Comparable>::findMin(findMin91,2974
+        const Comparable & RedBlackTree<Comparable>::findMax(findMax109,3473
+        const Comparable & RedBlackTree<Comparable>::find(find127,3969
+        void RedBlackTree<Comparable>::makeEmpty(makeEmpty149,4641
+        bool RedBlackTree<Comparable>::isEmpty(isEmpty160,4954
+        void RedBlackTree<Comparable>::printTree(printTree169,5189
+        RedBlackTree<Comparable>::operator=(operator=183,5543
+        void RedBlackTree<Comparable>::printTree(printTree198,5949
+        RedBlackTree<Comparable>::clone(clone213,6376
+        void RedBlackTree<Comparable>::handleReorient(handleReorient230,7011
+        RedBlackTree<Comparable>::rotate(rotate258,8134
+        rotateWithLeftChild(282,9023
+        rotateWithRightChild(295,9402
+        void RedBlackTree<Comparable>::reclaimMemory(reclaimMemory309,9768
+
+SeparateChaining.cpp,477
+        bool isPrime(9,199
+        int nextPrime(28,653
+        HashTable<HashedObj>::HashTable(HashTable43,936
+        void HashTable<HashedObj>::insert(insert53,1272
+        void HashTable<HashedObj>::remove(remove66,1700
+        const HashedObj & HashTable<HashedObj>::find(find76,2018
+        void HashTable<HashedObj>::makeEmpty(makeEmpty90,2464
+        HashTable<HashedObj>::operator=(operator=101,2751
+        int hash(112,3025
+        int hash(130,3427
+
+SplayTree.cpp,1200
+        SplayTree<Comparable>::SplayTree(SplayTree8,153
+        SplayTree<Comparable>::SplayTree(SplayTree21,553
+        SplayTree<Comparable>::~SplayTree(~SplayTree35,994
+        void SplayTree<Comparable>::insert(insert45,1210
+        void SplayTree<Comparable>::remove(remove86,2435
+        const Comparable & SplayTree<Comparable>::findMin(findMin118,3600
+        const Comparable & SplayTree<Comparable>::findMax(findMax141,4374
+        const Comparable & SplayTree<Comparable>::find(find160,4891
+        void SplayTree<Comparable>::makeEmpty(makeEmpty175,5302
+        bool SplayTree<Comparable>::isEmpty(isEmpty194,5947
+        void SplayTree<Comparable>::printTree(printTree203,6170
+        SplayTree<Comparable>::operator=(operator=216,6493
+        void SplayTree<Comparable>::splay(splay237,7200
+        void SplayTree<Comparable>::rotateWithLeftChild(rotateWithLeftChild284,8782
+        void SplayTree<Comparable>::rotateWithRightChild(rotateWithRightChild296,9145
+        void SplayTree<Comparable>::printTree(printTree309,9586
+        void SplayTree<Comparable>::reclaimMemory(reclaimMemory324,10060
+        SplayTree<Comparable>::clone(clone340,10540
+
+StackAr.cpp,406
+        Stack<Object>::Stack(Stack7,118
+        bool Stack<Object>::isEmpty(isEmpty17,391
+        bool Stack<Object>::isFull(isFull27,647
+        void Stack<Object>::makeEmpty(makeEmpty36,866
+        const Object & Stack<Object>::top(top48,1233
+        void Stack<Object>::pop(pop60,1593
+        void Stack<Object>::push(push72,1909
+        Object Stack<Object>::topAndPop(topAndPop85,2322
+
+StackLi.cpp,535
+        Stack<Object>::Stack(Stack8,148
+        Stack<Object>::Stack(Stack17,317
+        Stack<Object>::~Stack(~Stack27,531
+        bool Stack<Object>::isFull(isFull37,771
+        bool Stack<Object>::isEmpty(isEmpty47,1017
+        void Stack<Object>::makeEmpty(makeEmpty56,1221
+        const Object & Stack<Object>::top(top68,1563
+        void Stack<Object>::pop(pop80,1916
+        Object Stack<Object>::topAndPop(topAndPop95,2295
+        void Stack<Object>::push(push106,2536
+        operator=(operator=116,2790
+
+string.cpp,448
+string::string(4,43
+string::string(14,274
+const string & string::operator=(string::operator=22,453
+const string & string::operator+=(string::operator+=38,830
+ostream & operator<<(76,1647
+istream & operator>>(81,1741
+istream & getline(90,1908
+bool operator==(operator==99,2100
+bool operator!=(operator!=104,2217
+bool operator<(109,2334
+bool operator<=(operator<=114,2449
+bool operator>(119,2566
+bool operator>=(operator>=124,2681
+
+TestAATree.cpp,23
+        int main(5,87
+
+TestAvlTree.cpp,23
+        int main(5,88
+
+TestBinaryHeap.cpp,24
+        int main(6,125
+
+TestBinarySearchTree.cpp,23
+        int main(5,97
+
+TestBinomialQueue.cpp,23
+        int main(4,66
+
+TestCursorList.cpp,136
+        void printList(6,130
+        vector<List<int>::CursorNode> List<int>::cursorSpace;cursorSpace20,528
+        int main(22,591
+
+TestDSL.cpp,23
+        int main(5,84
+
+TestFastDisjSets.cpp,24
+        int main(5,133
+
+TestIntCell.cpp,23
+        int main(4,60
+
+TestLeftistHeap.cpp,23
+        int main(4,64
+
+TestLinkedList.cpp,55
+        void printList(6,130
+        int main(21,529
+
+TestMemoryCell.cpp,57
+        string operator+(9,187
+        int main(16,355
+
+TestPairingHeap.cpp,24
+        int main(7,154
+
+TestQuadraticProbing.cpp,23
+        int main(5,96
+
+TestQueueAr.cpp,23
+        int main(4,68
+
+TestR2.cpp,23
+        int main(6,88
+
+TestRandom.cpp,23
+        int main(5,87
+
+TestRedBlackTree.cpp,23
+        int main(5,93
+
+TestSeparateChaining.cpp,23
+        int main(5,96
+
+TestSlowDisjSets.cpp,207
+    class DisjSets19,566
+         vector<int> s;DisjSets::s28,751
+        DisjSets::DisjSets(35,917
+        void DisjSets::setUnion(48,1321
+        int DisjSets::find(58,1575
+        int main(69,1823
+
+TestSort.cpp,84
+        void checkSort(7,114
+        void permute(16,371
+        int main(25,578
+
+TestSplayTree.cpp,23
+        int main(5,90
+
+TestStackAr.cpp,23
+        int main(4,60
+
+TestStackLi.cpp,23
+        int main(4,60
+
+TestString.cpp,15
+int main(3,23
+
+TestTreap.cpp,23
+        int main(5,86
+
+Treap.cpp,1078
+        Treap<Comparable>::Treap(Treap13,307
+        Treap<Comparable>::Treap(Treap26,698
+        Treap<Comparable>::~Treap(~Treap40,1133
+        void Treap<Comparable>::insert(insert50,1365
+        void Treap<Comparable>::remove(remove59,1610
+        const Comparable & Treap<Comparable>::findMin(findMin69,1892
+        const Comparable & Treap<Comparable>::findMax(findMax86,2371
+        find(104,2894
+        void Treap<Comparable>::makeEmpty(makeEmpty126,3536
+        bool Treap<Comparable>::isEmpty(isEmpty136,3791
+        void Treap<Comparable>::printTree(printTree145,4010
+        Treap<Comparable>::operator=(operator=159,4326
+        insert(178,4832
+        void Treap<Comparable>::remove(remove205,5774
+        void Treap<Comparable>::makeEmpty(makeEmpty237,6821
+        void Treap<Comparable>::printTree(printTree253,7277
+        Treap<Comparable>::clone(clone269,7693
+        void Treap<Comparable>::rotateWithLeftChild(rotateWithLeftChild282,8172
+        void Treap<Comparable>::rotateWithRightChild(rotateWithRightChild294,8529
+
+vector.cpp,133
+#define VECTOR_CPP_2,20
+const vector<Object> & vector<Object>::operator=(operator=7,86
+void vector<Object>::resize(resize24,496

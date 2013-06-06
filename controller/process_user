@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo "===================== Beginning compilation process. ============================================="
+./compile_all.py $1
+echo "===================== Beginning input generation and dictionary run process. ====================="
+./run_all.py $1 
+#echo "===================== Beginning dictionary run process. =========================================="
+#./dict_run.py $1
+#echo "===================== Removing dump files to save space =========================================="
+#rm -Rf /home/cs221/proj3-2011S/runs/dumps/$1/*
+echo "===================== Beginning analysis process. ================================================"
+./analysis.py $1
+echo "===================== Analysis complete. ========================================================="

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# UNSAFELY transforms the command: <cmd> <arg> <cmd2> [<arg> ...]
+# into: <cmd> <arg> | head -<arg> | <cmd2> [<arg> ...]
+
+IG=$1
+N=$2
+EXE=$3
+
+shift 3
+
+"$IG" "$N" | head "-$N" | "$EXE" $@

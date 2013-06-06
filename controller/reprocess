@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+
+# Handy in case you need to reprocess a set of IDs.  
+# Runs over all IDs passed as command-line arguments (I hope!).
+for i
+do 
+  echo $i
+  ./process_user `basename $i` 
+done

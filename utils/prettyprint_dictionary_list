@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Run with no arguments for help.
+
+if [ $# -ne 0 ]
+then
+echo 'Assumes that the dict_runner.cpp file has dictionary_descriptions["..."] = "..."'
+echo assignments in it, and greps them.
+echo
+echo Use this to help write future assignment descriptions or for whatever else it
+echo might \(or might not\) be good for.
+echo
+echo List of dictionaries:
+fi
+
+grep 'dictionary_descriptions\["' ../dict_runner/dict_runner.cpp | sed -e 's/^ *dict[^[]\+\["//g; s/"\] *= *" */:  /g; s/ *" *;//g'
